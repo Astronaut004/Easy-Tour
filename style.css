@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* 
+#FEF9E7
+#000
+#fff
+*/
+
+/* Add this to your style.css */
+
+body {
+    background-color: #FEF9E7;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar css */
+.navbar {
+    transition: background-color 0.3s ease;
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar-scrolled {
+    background-color: rgb(76, 73, 73) !important;
+    color: white;
+}
+
+.navbar-brand h2 {
+    transition: color 0.3s ease;
+}
+
+.navbar-scrolled .navbar-brand h2 {
+    color: white;
+}
+
+.nav-link {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.navbar-scrolled .nav-link {
+    color: white;
+}
+
+.logoHead {
+    color: green;
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Corousel */
+
+.carousel-inner img {
+    height: 550px;
+    object-fit: cover;
+}
+
+.carousel-caption-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 999;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+.carousel-caption-custom h1 {
+    font-size: 8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Poppins', sans-serif;
+}
+
+.carousel-caption-overlay {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption-custom h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .carousel-caption-custom h1 {
+        font-size: 3rem;
+    }
+}
+
+
+
+/* Circle Feature Styling */
+
+.main-features {
+    background-color: #faf8ee;
+}
+
+.feat {
+    font-size: 3rem;
+    font-family: "Kaushan Script", cursive;
+}
+
+.circle-feature {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.circle-content {
+    text-align: center;
+}
+
+.circle-content h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: #343a40;
+}
+
+.circle-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+#circle-features {
+    margin-bottom: 5rem;
+}
+
+
+.btn-custom {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+.btn-custom img {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.btn-custom img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contact us  */
+.contact-section {
+    padding: 40px 0;
+    background-color: #f2e7c3;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form .form-control {
+    border-radius: 0.25rem;
+}
+
+.contact-form .btn {
+    border-radius: 0.25rem;
+    background-color: #90886a;
+    border: none;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: #484128;
+    transform: scale(1.05);
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+.image-container img {
+    position: relative;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .image-wrapper {
+        display: none;
+    }
+
+    .contact-section {
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 20px 0;
+    }
+
+    .contact-form .btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form .btn {
+        font-size: 0.8rem;
+    }
+}
+
+.con-text {
+    text-align: justify;
+    text-justify: inter-word;
+    padding-right: 50px;
+    font-size: 2rem;
+}
+
+.my-data-con {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid #d0cab1;
+
+
+    animation: typing 3.5s steps(30, end), blink .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #888371;
+    }
+}
+
+
+
+/*  Location Card   */
+
+/* .card {
+        position: relative;
+        overflow: hidden;
+    } */
+/* Basic card styling */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Change cursor to pointer on hover */
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Image styling */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Card overlay styling */
+.card-img-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+/* Card title overlay styling */
+.card-title-overlay {
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Enhance readability */
+}
+
+/* Card body styling */
+.card-body {
+    z-index: 999;
+    cursor: pointer;
+}
+
+/* Button styling */
+.card-body .btn {
+    border-radius: 0.25rem;
+    background-color: #90886a;
+    border: none;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card-body .btn:hover {
+    background-color: #484128;
+    transform: scale(1.05);
+}
+
+.loc {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.newly:hover {
+    transform: scale(1.02);
+}
+
+.mylink a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mylink a img {
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.mylink a:hover img,
+.mylink a:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1000px) {
+    .card-title-overlay {
+        font-size: 1rem;
+    }
+
+    .loc {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .loc {
+        font-size: 1.8rem;
+    }
+}
+
+
+.footer {
+    background-color: #4C4949;
+    padding: 20px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer .myheading {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer ul li {
+    margin: 0 10px;
+}
+
+
+.footer ul.social-media li img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
