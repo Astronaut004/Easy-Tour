@@ -20,13 +20,13 @@
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" style="height: 550px;">
                     <div class="carousel-item active" data-bs-interval="1000">
-                        <img src="./images/coro1.jpg" class="d-block w-100" alt="...">
+                        <img src="./images/coro1.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
                     <div class="carousel-item" data-bs-interval="1000">
-                        <img src="./images/coro2.jpg" class="d-block w-100" alt="...">
+                        <img src="./images/coro2.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
                     <div class="carousel-item" data-bs-interval="1000">
-                        <img src="./images/coro3.jpg" class="d-block w-100" alt="...">
+                        <img src="./images/coro3.jpg" class="d-block w-100" alt="..." loading="lazy" >
                     </div>
                     <div class="carousel-caption-overlay"></div>
                     <div class="carousel-caption-custom">
