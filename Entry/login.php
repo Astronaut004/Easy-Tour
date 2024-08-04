@@ -12,16 +12,16 @@
 
 <body>
     <div class="container">
-        <form>
+        <form action="" method="POST">
             <h2 class="text-center mb-4 text-dark">Login</h2>
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                <label  class="form-label">Username</label>
+                <input type="text" class="form-control"  placeholder="Enter your username" name="uname">
                 <small class="form-text text-muted">Your unique username</small>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="pass">
                 <!-- Uncomment this if needed
                 <small class="form-text text-muted">Must have special symbol $,#,&.., number and #one uppercase letter</small>
                 -->
@@ -33,3 +33,64 @@
 </body>
 
 </html>
+
+
+<?php
+include "../connection.php";
+session_start();
+
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_REQUEST['uname'];
+    $password = $_REQUEST['pass'];
+
+    if (empty($username) || empty($password)) {
+        echo "<script>alert('Fill up Everything'); window.location.href='login.php';</script>";
+        die();
+    }
+
+    $sql = "SELECT * FROM user_tb WHERE username = ?";
+    $stmt = $con->prepare($sql);
+    if (!$stmt) {
+        die("Prepare failed: " . $con->error);
+    }
+    
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows === 0) {
+        echo "<script>alert('No user found'); window.location.href='login.php';</script>";
+        die();
+    }
+    
+    $row = $result->fetch_assoc();
+    $passwordDB = $row['password'];
+    $role = $row['role'];
+    $adminCode = $row['admin_code'];
+
+    if (password_verify($password, $passwordDB)) {
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $role;
+
+        if ($role == "Admin" && $adminCode == 12345) {
+            header("Location: Admin.php");
+            exit();
+        } else {
+            header("Location: user.php");
+            exit();
+        }
+    } else {
+        echo "<script>alert('Wrong Credentials'); window.location.href='login.php';</script>";
+        die();
+    }
+} 
+// else {
+//     echo "<script>alert('Wrong Method'); window.location.href='login.php';</script>";
+// }
+?>
+
