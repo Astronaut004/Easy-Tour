@@ -22,7 +22,7 @@ body {
 }
 
 .navbar-scrolled {
-    background-color: rgb(76, 73, 73) !important;
+    background-color: #484128 !important;
     color: white;
 }
 
@@ -176,12 +176,15 @@ body {
 .btn-custom img {
     border-radius: 50%;
     overflow: hidden;
-}
-
-.btn-custom img {
     display: block;
     margin: 0 auto;
 }
+
+/* .btn-custom img {
+    display: block;
+    margin: 0 auto;
+} */
+
 
 /* Contact us  */
 .contact-section {
@@ -309,113 +312,77 @@ body {
 
 
 /*  Location Card   */
-
-/* .card {
-        position: relative;
-        overflow: hidden;
-    } */
-/* Basic card styling */
-.card {
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* Change cursor to pointer on hover */
-.card:hover {
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
-}
-
-/* Image styling */
 .card-img-top {
+    position: relative;
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
+    height: 200px;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Card overlay styling */
+.card-img-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darken the image */
+    z-index: 1;
+}
+
+.card-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 0;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
 .card-img-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    backdrop-filter: blur(1px);
-    z-index: 1;
-}
-
-/* Card title overlay styling */
-.card-title-overlay {
-    font-size: 1.5rem;
-    font-weight: bold;
-    z-index: 1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    /* Enhance readability */
-}
-
-/* Card body styling */
-.card-body {
-    z-index: 999;
-    cursor: pointer;
-}
-
-/* Button styling */
-.card-body .btn {
-    border-radius: 0.25rem;
-    background-color: #90886a;
-    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 2; /* Ensure it appears above the overlay */
+    text-align: center;
+    padding: 15px; /* Add some padding for better spacing */
 }
 
-.card-body .btn:hover {
-    background-color: #484128;
-    transform: scale(1.05);
+.card-img-overlay h5 {
+    margin-bottom: 10px; /* Space between title and line */
+    padding-bottom: 5px; /* Space between line and title */
+    border-bottom: 1px solid white; /* Line between title and learn more */
 }
 
-.loc {
-    font-size: 2.5rem;
-    text-transform: uppercase;
+.card-body {
+    padding: 15px;
 }
 
-.newly:hover {
-    transform: scale(1.02);
+.btn-primary {
+    z-index: 2; /* Ensure the button is visible above the overlay */
 }
 
-.mylink a {
-    color: #000;
-    text-decoration: none;
-    display: inline-block;
+.card-link {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Ensure text color is white */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.mylink a img {
-    vertical-align: middle;
-    transition: transform 0.3s ease;
+.card-link:hover {
+    transform: scale(1.05); /* Expand image on hover */
 }
 
-.mylink a:hover img,
-.mylink a:hover {
-    transform: scale(1.05);
-}
 
-@media (max-width: 1000px) {
-    .card-title-overlay {
-        font-size: 1rem;
-    }
-
-    .loc {
-        font-size: 1.5rem;
-    }
-}
-
-@media (min-width: 1001px) and (max-width: 1200px) {
-    .loc {
-        font-size: 1.8rem;
-    }
-}
-
+/* Location Card End */
 
 .footer {
     background-color: #4C4949;
