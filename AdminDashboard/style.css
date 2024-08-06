@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    background-color: #FEF9E7;
+    font-family: 'Poppins', sans-serif;
+
+    /* Here */
+
+    .logoHead {
+        color: green;
+    }
+
+
+    .myhead {
+        padding-right: 30px;
+        padding-left: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .myhead.scrolled {
+        background-color: #484128;
+        color: white;
+    }
+    .scrolly {
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #514435;
+    }
+
+    .myhead.scrolled .dropdown-toggle,
+    .myhead.scrolled .nav-link {
+        color: white !important;
+    }
+
+    .nav-link {
+        color: black;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .navbar-brand h2 {
+        transition: color 0.3s ease;
+    }
+}
+
+/* ye dropdown menu ke liy*/
+.mybg {
+    background-color: #d4ccb1;
+}
+
+
+/* Testimonial page css */
+.my-box {
+    background-color: #d4ccb1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+.btn-custom img {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+}
+
+.image-links {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.image-links a {
+    width: 30px;
+    height: 30px;
+}
+
+.image-links img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.circular-img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+
+
+/* Button testimonial */
+
+.fixed-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.fixed-button .btn {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    font-size: 0.75rem;
+    background-color: #6f4f28;
+    border: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed-button .btn:hover {
+    transform: scale(1.1);
+    background-color: #484128;
+}
+
+
+.fixed-button .btn .d-flex {
+    height: 100%;
+    width: 100%;
+}
+
+.fixed-button .button-text {
+    display: block;
+    font-size: 0.6rem;
+}
+
+/* Button testimonial ends */
+
+
+/* Modal on testimonial page */
+
+.modal-content {
+    background-color: #f5f5f5;
+    /* Light gray background for the modal */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+    color: #6f4f28;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.form-label {
+    color: #333;
+}
+
+.form-control,
+.form-select {
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #6f4f28;
+    border-color: #6f4f28;
+}
+
+.btn-primary:hover {
+    background-color: #4a3c1e;
+    border-color: #4a3c1e;
+}
+
+
+
+/* Modal on testimonial page */
+
+
+/* Carousel Container */
+#carouselExampleDark {
+    position: relative;
+    width: 100%;
+    height: 649px;
+    overflow: hidden;
+}
+
+/* Carousel Inner Images */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    bottom: 10px;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+
+/*  Location Card   */
+.card-img-top {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.card-img-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Darken the image */
+    z-index: 1;
+}
+
+.card-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 0;
+    transition: transform 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 2;
+    /* Ensure it appears above the overlay */
+    text-align: center;
+    padding: 15px;
+    /* Add some padding for better spacing */
+}
+
+.card-img-overlay h5 {
+    margin-bottom: 10px;
+    /* Space between title and line */
+    padding-bottom: 5px;
+    /* Space between line and title */
+    border-bottom: 1px solid white;
+    /* Line between title and learn more */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.btn-primary {
+    z-index: 2;
+    /* Ensure the button is visible above the overlay */
+}
+
+.card-link {
+    text-decoration: none;
+    /* Remove underline */
+    color: white;
+    /* Ensure text color is white */
+    transition: transform 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+    /* Expand image on hover */
+}
+
+
+/* Location Card End */
+
+
+.mydelete .btn {
+    border-radius: 0.25rem;
+    background-color: #e45a5a;
+    border: none;
+    width: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: none !important;
+}
+
+.mydelete .btn:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+    backdrop-filter: none !important;
+}
+
+
+.feat {
+    font-size: 3rem;
+    font-family: "Kaushan Script", cursive;
+}
+
+@media (max-width: 768px) {
+    .feat {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 0.875rem;
+    }
+
+    #carouselExampleDark {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .feat {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 0.75rem;
+    }
+
+    #carouselExampleDark {
+        height: 300px;
+    }
+}
+
+.mycarousel {
+    height: 300px;
+}
+
+.circular-img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+.footer {
+    background-color: #484128;
+    padding: 20px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer .myheading {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer ul li {
+    margin: 0 10px;
+}
+
+.footer ul.social-media li img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.mylink a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mylink a img {
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.mylink a:hover img,
+.mylink a:hover {
+    transform: scale(1.05);
+}
+
+.loc {
+    color: rgb(255, 255, 255);
+
+}
