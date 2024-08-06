@@ -8,8 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
-    <!-- Import the Poppins font from Google Fonts -->
 </head>
+
+<style>
+
+</style>
 
 <body>
     <div class="myback">
@@ -19,13 +22,13 @@
         <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" style="height: 550px;">
-                    <div class="carousel-item active" data-bs-interval="1000">
+                    <div class="carousel-item active" data-bs-interval="10000">
                         <img src="./images/coro1.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
-                    <div class="carousel-item" data-bs-interval="1000">
+                    <div class="carousel-item" data-bs-interval="8000">
                         <img src="./images/coro2.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
-                    <div class="carousel-item" data-bs-interval="1000">
+                    <div class="carousel-item" data-bs-interval="5000">
                         <img src="./images/coro3.jpg" class="d-block w-100" alt="..." loading="lazy" >
                     </div>
                     <div class="carousel-caption-overlay"></div>
@@ -65,12 +68,72 @@
         </div>
 
         <!-- Popular Destinations Section -->
-        <section class="container my-5">
+<!-- Popular Destinations Section -->
+<div class="container">
+        <section class=" my-5">
             <h2 class="text-center mb-4 feat">Popular Locations</h2>
             <div class="row">
+                <!-- Location 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="hello.php" class="card-link">
+                            <div class="card-img-top">
+                                <img src="images/location1.jpg" alt="Goa" width="400px" height="200px">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title-overlay loc">Goa</h5>
+                                    <span>Learn more</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-                <?php include "./Components/Popular_location.php"; ?>
+                <!-- Location 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="hello.php" class="card-link">
+                            <div class="card-img-top">
+                                <img src="images/location2.jpg" alt="Jammu & Kashmir" width="400px" height="200px">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title-overlay loc">Jammu & <br> Kashmir</h5>
+                                    <span>Learn more</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Location 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="hello.php" class="card-link">
+                            <div class="card-img-top">
+                                <img src="images/location3.jpg" alt="UttraKhand" width="400px" height="200px">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title-overlay loc">UttraKhand</h5>
+                                    <span>Learn more</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Location 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="hello.php" class="card-link">
+                            <div class="card-img-top">
+                                <img src="images/location4.jpg" alt="Himachal Pradesh" width="400px" height="200px">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title-overlay loc">Himachal Pradesh</h5>
+                                    <span>Learn more</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- View More Link -->
                 <div class="text-center mylink">
                     <a href="#" class="view-more-link">
                         View more
@@ -79,6 +142,8 @@
                 </div>
             </div>
         </section>
+    </div>
+
 
         <!-- Contact Section -->
         <div class="container mt-4 mb-5">
