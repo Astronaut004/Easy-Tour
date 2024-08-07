@@ -58,69 +58,41 @@
         <section class=" my-5">
             <h2 class="text-center mb-4 feat">Popular Locations</h2>
             <div class="row">
-                <!-- Location 1 -->
+
+
+            <?php
+                include "../connection.php";
+
+                $sql = "SELECT * FROM state_tb ORDER BY state_name ASC;";
+                $stmt = $con->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                while ($row = $result->fetch_assoc()) {
+                    $name = $row['state_name'];
+                    $description = $row['state_description'];
+                    $simage = $row['state_photo'];
+
+                    echo '
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <a href="hello.php" class="card-link">
+                        <a href="./detail.php?sname='.$name.'" class="card-link">
                             <div class="card-img-top">
-                                <img src="../images/location1.jpg" alt="Goa" width="400px" height="200px">
+                                <img src="./stateImage/'.$simage.'" alt="'.$name.'" width="400px" height="200px">
                                 <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Goa</h5>
+                                    <h5 class="card-title-overlay loc">'.$name.'</h5>
                                     <span>Learn more</span>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <!-- Location 2 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="../images/location2.jpg" alt="Jammu & Kashmir" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Jammu & <br> Kashmir</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Location 3 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="../images/location3.jpg" alt="UttraKhand" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">UttraKhand</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Location 4 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="../images/location4.jpg" alt="Himachal Pradesh" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Himachal Pradesh</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                    ';
+                }
+            ?>
                 <!-- View More Link -->
                 <div class="text-center mylink">
-                    <a href="#" class="view-more-link">
+                    <a href="./explore.php" class="view-more-link">
                         View more
                         <img src="../images/viewmore.png" alt="View more" width="12" height="10">
                     </a>
