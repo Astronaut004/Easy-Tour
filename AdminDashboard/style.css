@@ -186,14 +186,24 @@ body {
     box-shadow: none;
 }
 
-.btn-primary {
-    background-color: #6f4f28;
-    border-color: #6f4f28;
+
+
+.btn-custom1 {
+    background-color: #6f4f28 !important;
+    border-color: #6f4f28 !important;
+    box-shadow: none !important;
+    color: #fff !important;
 }
 
-.btn-primary:hover {
-    background-color: #4a3c1e;
-    border-color: #4a3c1e;
+.btn-custom1:hover {
+    background-color: #4a3c1e !important;
+    color: #fff !important; 
+}
+
+.btn-custom1:focus,
+.btn-custom1:active {
+    background-color: #4a3c1e !important;
+    color: #fff !important; 
 }
 
 
@@ -292,7 +302,7 @@ body {
     padding: 15px;
 }
 
-.btn-primary {
+.btn-custom1 {
     z-index: 2;
     /* Ensure the button is visible above the overlay */
 }

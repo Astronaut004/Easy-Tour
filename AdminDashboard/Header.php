@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+    header("Location: ../Entry/login.php");
+    exit();
+  }
+?>
 <link rel="stylesheet" href="./style.css">
 
 <style>
@@ -8,6 +16,11 @@
   .btn-outline-success:hover {
     background-color: #484128;
     border: 1px solid #d4ccb1;
+  }
+  @media(max-width:1000px) {
+    .myin, .btn-outline-success {
+      display: none;
+    }
   }
 </style>
 
@@ -20,7 +33,7 @@
     <div class="d-flex align-items-center ml-auto">
       <!-- Search Bar -->
       <form class="d-flex me-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2 myin" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
@@ -41,7 +54,7 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="./logout.php">Sign out</a></li>
+          <li><a class="dropdown-item" href="../Entry/logout.php">Sign out</a></li>
         </ul>
       </div>
     </div>

@@ -135,7 +135,7 @@
 
                 <!-- View More Link -->
                 <div class="text-center mylink">
-                    <a href="#" class="view-more-link">
+                    <a href="#" class="view-more-link" style="text-decoration: none; color: #484128; " >
                         View more
                         <img src="./images/viewmore.png" alt="View more" width="12" height="10">
                     </a>

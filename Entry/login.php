@@ -12,14 +12,14 @@
         /* Existing CSS */
         #alertBox {
             position: fixed;
-            top: 10px;
+            top: 20px;
             right: 10px;
             width: 350px;
             z-index: 99;
             opacity: 0;
             transform: translateX(10%);
             animation: none;
-            animation-duration: 0.5s;
+            animation-duration: 0.3s;
             animation-fill-mode: forwards;
         }
 
@@ -46,7 +46,6 @@
             from {
                 width: 0%;
             }
-
             to {
                 width: 100%;
             }
@@ -58,7 +57,7 @@
             left: 0;
             height: 100%;
             border-bottom: 2px solid black;
-            animation: slide 3s linear forwards;
+            animation: slide 3.5s linear forwards;
         }
     </style>
 </head>
@@ -90,7 +89,7 @@
                 alertBox.classList.add('show');
                 setTimeout(function() {
                     alertBox.classList.remove('show');
-                }, 3000); // Adjust duration if needed
+                }, 4000); // Adjust duration if needed
             }
         });
     </script>

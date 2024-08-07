@@ -59,7 +59,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" form="experienceForm">Submit</button>
+                <button type="submit" class="btn btn-custom1" form="experienceForm">Submit</button>
             </div>
         </div>
     </div>
@@ -93,7 +93,6 @@
             </div>
         <?php endfor; ?>
     </div>
-
     <script>
         window.addEventListener('load', function() {
             window.scrollTo(0, document.body.scrollHeight);

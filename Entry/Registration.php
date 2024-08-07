@@ -166,6 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $image = '../images/user.png'; // Default image path
 
+        
         if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
             $imageName = basename($_FILES['image']['name']);
             $imageTmpName = $_FILES['image']['tmp_name'];
