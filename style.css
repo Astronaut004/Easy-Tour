@@ -18,7 +18,7 @@ body {
 /* Navbar css */
 .navbar {
     transition: background-color 0.3s ease;
-    background-color: rgb(255, 255, 255);
+    background-color: #FEF9E7;
 }
 
 .navbar-scrolled {
@@ -63,7 +63,8 @@ body {
 /* Corousel */
 
 .carousel-inner img {
-    height: 550px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -88,7 +89,7 @@ body {
 
 .carousel-caption-custom h1 {
     font-size: 8rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -99,7 +100,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.1);
     z-index: 5;
 }
 
@@ -385,7 +386,7 @@ body {
 /* Location Card End */
 
 .footer {
-    background-color: #4C4949;
+    background-color: #484128;
     padding: 20px 0;
     color: #ffffff;
     text-align: center;
