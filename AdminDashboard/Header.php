@@ -38,8 +38,9 @@
       </form>
 
       <ul class="nav mb-2 mb-md-0">
-        <li class="nav-item"><a href="./Dashboard.php" class="nav-link px-2">Home</a></li>
-        <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Explore</a></li>
+      <li class="nav-item"><a href="./Dashboard.php" class="nav-link px-2">Home</a></li>
+      <!-- <li class="nav-item"><a href="./City/AddExplore.php" class="nav-link px-2">Add City</a></li> -->
+      <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Explore</a></li>
         <li class="nav-item"><a href="./pages/contact.php" class="nav-link px-2">Contact us</a></li>
         <li class="nav-item"><a href="./Testimonial.php" class="nav-link px-2">Testimonials</a></li>
       </ul>
