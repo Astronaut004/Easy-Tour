@@ -5,7 +5,7 @@ $name = $_REQUEST['sname'];
 
 $sql = "SELECT * FROM state_tb WHERE state_name = ?";
 $stmt = $con->prepare($sql);
-$stmt->bind_param("s",$name);
+$stmt->bind_param("s", $name);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
@@ -45,17 +45,32 @@ $date = $dateTimeObj->format('d-m-Y');
         .container {
             padding: 20px;
         }
+        .add-btn {
+            position: fixed;
+            bottom: 7rem;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: none;
+        }
     </style>
 </head>
 
 <body>
     <?php include "./Header.php"; ?>
 
+    <!-- Weather -->
+
+
     <div class="container">
         <h1 class="text-center fs-1"><?php echo $sname ?></h1>
         <div class="row">
             <div class="col-md-3 d-flex justify-content-center">
-            <img class="myimg" src="./stateImage/<?php echo $simage; ?>" alt="State Image" width="300" height="300">
+                <img class="myimg" src="./stateImage/<?php echo $simage; ?>" alt="State Image" width="300" height="300">
             </div>
             <div class="col-md-9 test-center fs-6">
                 <p><?php echo $description ?></p>
@@ -66,18 +81,40 @@ $date = $dateTimeObj->format('d-m-Y');
                 <p><strong>Wildlife:</strong> <?php echo $wild ?></p>
 
                 <p><strong>Culture:</strong> <?php echo $culture ?></p>
-                <p class="" style="float: right;" ><?php echo $date ?></p>
+                <!-- <p class="" style="float: right;" ><?php echo $date ?></p> -->
+                <div class="row bg-dark">
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Food:</div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Accomodation:</div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Weather: &nbsp; <span id="weather"></span></div>
+                </div>
             </div>
         </div>
-        <h2 class="text-center">Famous locations</h2>
+        <h2 class="text-center mt-5">Famous locations</h2>
         <div class="row">
-            <?php for ($i = 0; $i < 5; $i++) : ?>
-                <div class="col-md-3 mb-4">
+
+            <?php
+            $statename = $sname;
+            // echo "$statename";
+            $sql1 = "SELECT * FROM city_tb WHERE city_state = ?";
+            $stmt1 = $con->prepare($sql1);
+            $stmt1->bind_param("s", $statename);
+            $stmt1->execute();
+            $result1 = $stmt1->get_result();
+            while ($row = $result1->fetch_assoc()) {
+                $city = $row['city_name'];
+                $soul = $row['city_sprit'];
+                $desc = $row['city_description'];
+                $image = $row['city_image'];
+                $user = $row['username'];
+                $date = $row['created_at'];
+
+                echo '
+                    <div class="col-md-3 mb-4">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="../images/location2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="./stateImage/' . $image . '" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Himachal Pradesh <?php echo $i + 1; ?></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title">' . $city . '</h5>
+                            <p class="card-text">' . substr($desc, 0, 95) . '...</p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <a href="./detail.php" class="btn btn-custom1 w-100">View</a>
@@ -94,11 +131,40 @@ $date = $dateTimeObj->format('d-m-Y');
                         </div>
                     </div>
                 </div>
-            <?php endfor; ?>
+                        
+                        ';
+            }
+            // $sql1 = 
+            ?>
         </div>
-    </div>
+        <button class="btn btn-danger rounded-circle add-btn mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Add More City">
+            <a href="./City/AddExplore.php" class="text-white text-decoration-none">+</a>
+        </button>
 
+    </div>
+    <?php include "./footer.php" ?>
     <script>
+        const getWeather = async (city) => {
+            const weather = document.getElementById('weather');
+            weather.innerHTML = `<p>Please wait While we load data</p>`;
+            const API_KEY = '192698a3e3e1170a18f988509d1fafa3';
+
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log(data);
+                const weatherIcon = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather Icon" width=50px height=50px> `;
+                weather.innerHTML = `${data.main.temp} ℃ ${weatherIcon}`;
+
+            } catch {
+                weather.innerHTML = '<p>Error fetching the weather data. Please try again later.</p>';
+            }
+        };
+
+        const city = '<?php echo $name; ?>';
+        getWeather(city);
+
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.myhead');
 
@@ -108,7 +174,14 @@ $date = $dateTimeObj->format('d-m-Y');
                 header.classList.remove('scrolled');
             }
         });
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let buttonText = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+            buttonText.forEach((element) => {
+                new bootstrap.Tooltip(element);
+            });
+        })
+    </script>
 </body>
 
 </html>
