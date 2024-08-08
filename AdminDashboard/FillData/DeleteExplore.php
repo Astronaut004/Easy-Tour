@@ -1,3 +1,12 @@
+<?php
+  session_start();
+
+  if(!$_SESSION['username']) {
+    header("Location: ../../Entry/login.php");
+    exit();
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
