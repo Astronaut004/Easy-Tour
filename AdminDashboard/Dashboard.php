@@ -67,8 +67,11 @@
                 $stmt = $con->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->get_result();
-
+                $count=0;
                 while ($row = $result->fetch_assoc()) {
+                    if($count >= 4) {
+                        break;
+                    }
                     $name = $row['state_name'];
                     $description = $row['state_description'];
                     $simage = $row['state_photo'];
@@ -88,6 +91,7 @@
                     </div>
                 </div>
                     ';
+                    $count++;
                 }
             ?>
                 <!-- View More Link -->
@@ -107,30 +111,55 @@
         <h1 class="text-center feat">Testimonials</h1>
         <div id="carouselExampleDark2" class="carousel carousel-dark slide mb-5">
             <div class="carousel-inner" style="background-color: #f6eed4;">
+
+            <?php
+            include "../connection.php";
+            $sql = "SELECT * FROM feedback_tb";
+            $stmt = $con->prepare($sql);
+            // $stmt->bind_param()
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $count=0;
+            while ($row = $result->fetch_assoc()) {
+                $starRating = '';
+                if($count>=3) {
+                    break;
+                }
+                switch ($row['feed_star']) {
+                    case 1:
+                        $starRating = '★☆☆☆☆';
+                        break;
+                    case 2:
+                        $starRating = '★★☆☆☆';
+                        break;
+                    case 3:
+                        $starRating = '★★★☆☆';
+                        break;
+                    case 4:
+                        $starRating = '★★★★☆';
+                        break;
+                    case 5:
+                        $starRating = '★★★★★';
+                        break;
+                }
+                echo '
                 <div class="carousel-item active" data-bs-interval="1000">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center m-5">
                         <div class="col-md-3 text-center">
-                            <img src="../images/feature1.jpg" alt="Feedback" class="circular-img">
+                            <img src="'.$row['feed_image'].'" alt="Feedback" class="circular-img" style="width:80px" >
                         </div>
-                        <div class="col-md-9">Hey Here is the Review</div>
+                        <div class="col-md-9">
+                        <p class="lead">'.$row['feed_desc'].'</p>
+                        <p>'.$starRating.'</p>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item" data-bs-interval="1000">
-                    <div class="row align-items-center">
-                        <div class="col-md-3 text-center">
-                            <img src="../images/feature1.jpg" alt="Feedback" class="circular-img">
-                        </div>
-                        <div class="col-md-9">Heya Here is 2nd User</div>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="1000">
-                    <div class="row align-items-center">
-                        <div class="col-md-3 text-center">
-                            <img src="../images/feature1.jpg" alt="Feedback" class="circular-img">
-                        </div>
-                        <div class="col-md-9">Heya guys It's been Long</div>
-                    </div>
-                </div>
+                ';
+                $count++;
+            }
+                ?>
+     
+     
             </div>
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
