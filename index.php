@@ -19,17 +19,17 @@
         <?php include "./Navbar.php" ?>
 
         <!-- Carousel -->
-        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+        <div class="container-fluid p-0" style="padding-left: 0; padding-right: 0;">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" style="height: 550px;">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="./images/coro1.jpg" class="d-block w-100" alt="..." loading="lazy">
+                        <img src="./images/coro5.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
                     <div class="carousel-item" data-bs-interval="8000">
-                        <img src="./images/coro2.jpg" class="d-block w-100" alt="..." loading="lazy">
+                        <img src="./images/coro4.jpg" class="d-block w-100" alt="..." loading="lazy">
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="./images/coro3.jpg" class="d-block w-100" alt="..." loading="lazy" >
+                        <img src="./images/coro1.jpg" class="d-block w-100" alt="..." loading="lazy" >
                     </div>
                     <div class="carousel-caption-overlay"></div>
                     <div class="carousel-caption-custom">
@@ -74,68 +74,44 @@
             <h2 class="text-center mb-4 feat">Popular Locations</h2>
             <div class="row">
                 <!-- Location 1 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="images/location1.jpg" alt="Goa" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Goa</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <?php
+                include "./connection.php";
 
-                <!-- Location 2 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="images/location2.jpg" alt="Jammu & Kashmir" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Jammu & <br> Kashmir</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                $sql = "SELECT * FROM state_tb";
+                $stmt = $con->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $count=0;
+                while ($row = $result->fetch_assoc()) {
+                    if($count >= 4) {
+                        break;
+                    }
+                    $name = $row['state_name'];
+                    $description = $row['state_description'];
+                    $simage = $row['state_photo'];
 
-                <!-- Location 3 -->
+                    echo '
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <a href="hello.php" class="card-link">
+                        <a href="./AdminDashboard/detail.php?sname='.$name.'" class="card-link">
                             <div class="card-img-top">
-                                <img src="images/location3.jpg" alt="UttraKhand" width="400px" height="200px">
+                                <img src="./AdminDashboard/stateImage/'.$simage.'" alt="'.$name.'" width="400px" height="200px">
                                 <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">UttraKhand</h5>
+                                    <h5 class="card-title-overlay loc">'.$name.'</h5>
                                     <span>Learn more</span>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <!-- Location 4 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <a href="hello.php" class="card-link">
-                            <div class="card-img-top">
-                                <img src="images/location4.jpg" alt="Himachal Pradesh" width="400px" height="200px">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title-overlay loc">Himachal Pradesh</h5>
-                                    <span>Learn more</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                    ';
+                    $count++;
+                }
+            ?>
 
                 <!-- View More Link -->
                 <div class="text-center mylink">
-                    <a href="#" class="view-more-link" style="text-decoration: none; color: #484128; " >
+                    <a href="./Entry/login.php" class="view-more-link" style="text-decoration: none; color: #484128; " >
                         View more
                         <img src="./images/viewmore.png" alt="View more" width="12" height="10">
                     </a>
@@ -182,10 +158,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <!-- <div class="container-fluid bg-dark"> -->
     <?php include "./footer.php" ?>
-    <!-- </div> -->
     <script src="./script.js"></script>
 </body>
 
