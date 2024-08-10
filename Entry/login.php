@@ -148,10 +148,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['role'] = $role;
 
         if ($role == "Admin" && $adminCode == 12345) {
-            header("Location: ../AdminDashboard/Dashboard.php");
+            header("Location: ../AdminDashboard/index.php");
             exit();
         } else {
-            header("Location: user.php");
+            header("Location: ../userPanel/index.php");
             exit();
         }
     } else {
