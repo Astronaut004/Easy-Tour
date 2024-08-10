@@ -1,4 +1,16 @@
 <?php
+  session_start();
+
+  if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+    header("Location: ../Entry/login.php");
+    exit();
+}
+if($_SESSION['role'] != "Admin") {
+    header("Location: ../UserPanel");
+    exit();
+  }
+  ?>
+<?php
 include "../connection.php";
 
 $name = $_REQUEST['sname'];
@@ -61,15 +73,11 @@ $date = $dateTimeObj->format('d-m-Y');
 </head>
 
 <body>
-    <?php include "./Header.php"; ?>
-
-    <!-- Weather -->
-
-
+    
     <div class="container">
         <h1 class="text-center fs-1"><?php echo $sname ?></h1>
         <div class="row">
-            <div class="col-md-3 d-flex justify-content-center">
+            <div class="col-md-3 d-flex justify-content-center ">
                 <img class="myimg" src="./stateImage/<?php echo $simage; ?>" alt="State Image" width="300" height="300">
             </div>
             <div class="col-md-9 test-center fs-6">
