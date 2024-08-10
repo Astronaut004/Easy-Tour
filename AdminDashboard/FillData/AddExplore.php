@@ -1,13 +1,15 @@
 <?php
   session_start();
 
-  if(!$_SESSION['username']) {
-    header("Location: ../../Entry/login.php");
+  if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+    header("Location: ../Entry/login.php");
+    exit();
+}
+if($_SESSION['role'] != "Admin") {
+    header("Location: ../UserPanel");
     exit();
   }
-?>
-
-
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,7 +163,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die();
         }
 
-        // Check if the state already exists
         $sql = "SELECT * FROM state_tb WHERE state_name = ?";
         $stmt = $con->prepare($sql);
         $stmt->bind_param("s", $name);
