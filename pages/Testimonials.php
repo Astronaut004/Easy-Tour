@@ -163,17 +163,7 @@
 
                     <p>' . $starRating . '</p>
                     <p class="lead">' . $row['feed_desc'] . '</p>
-                    <div class="image-links">
-                        <a href="../Entry/login.php" id="like-link">
-                            <img src="../images/edit.png" alt="edit">
-                        </a>
-
-                        <a href="../Entry/login.php" id="report-link">
-                            <img src="../images/trash.png" alt="trash">
-                        </a>
-                    </div>
                 </div>
-
                 <div class="col-md-4 d-flex flex-column align-items-center order-md-1">
                     <a href="../Entry/login.php" class="btn btn-custom">
                         <img src="' . $row['feed_image'] . '" class="circular-img" alt="Feature Image">
