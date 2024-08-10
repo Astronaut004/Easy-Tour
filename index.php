@@ -135,7 +135,7 @@
                     <div class="contact-section">
                         <div class="container">
                             <div class="contact-form contact">
-                                <form>
+                            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" placeholder="Your Name" required>
