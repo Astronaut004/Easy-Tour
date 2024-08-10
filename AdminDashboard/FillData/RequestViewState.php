@@ -1,0 +1,139 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+    header("Location: ../Entry/login.php");
+    exit();
+}
+if($_SESSION['role'] != "Admin") {
+    header("Location: ../UserPanel");
+    exit();
+  }
+  ?>
+
+<?php
+include "../../connection.php";
+
+$name = $_REQUEST['sname'];
+
+$sql = "SELECT * FROM request_tb WHERE state_name = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $name);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+$sname = $row['state_name'];
+$soul = $row['state_sprituality'];
+$description = $row['state_description'];
+$wild = $row['state_wildlife'];
+$culture = $row['state_culture'];
+$simage = $row['state_photo'];
+$food = $row['state_food'];
+$time = $row['created_at'];
+$dateTimeObj = new DateTime($time);
+$date = $dateTimeObj->format('d-m-Y');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .myimg {
+            border-radius: 15px;
+        }
+
+        .test-center {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .container {
+            padding: 20px;
+        }
+        .add-btn {
+            position: fixed;
+            bottom: 7rem;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1 class="text-center fs-1"><?php echo $sname ?></h1>
+        <div class="row">
+            <div class="col-md-3 d-flex justify-content-center ">
+            <!-- <?php echo $simage; ?> -->
+                <img class="myimg" src="../stateImage/<?php echo $simage; ?>" alt="State Image" width="200" height="200">
+            </div>
+            <div class="col-md-9 test-center fs-6">
+                <p><?php echo $description ?></p>
+
+                <p><strong>Famous Food:</strong> <?php echo $food ?></p>
+                <p><strong>Spiritual Significance:</strong> <?php echo $soul ?></p>
+
+                <p><strong>Wildlife:</strong> <?php echo $wild ?></p>
+
+                <p><strong>Culture:</strong> <?php echo $culture ?></p>
+                <!-- <p class="" style="float: right;" ><?php echo $date ?></p> -->
+                <div class="row bg-dark">
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Food:</div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Accomodation:</div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 fw-bold text-light">Weather: &nbsp; <span id="weather"></span></div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success mt-3" style="float: right;" ><a href="./AddRequest.php?sname=<?php echo $sname; ?>" style="text-decoration: none; color: white; " >Add</a></button>
+
+    </div>
+    <script>
+        const getWeather = async (city) => {
+            const weather = document.getElementById('weather');
+            weather.innerHTML = `<p>Please wait While we load data</p>`;
+            const API_KEY = '192698a3e3e1170a18f988509d1fafa3';
+
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log(data);
+                const weatherIcon = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather Icon" width=50px height=50px> `;
+                weather.innerHTML = `${data.main.temp} ℃ ${weatherIcon}`;
+
+            } catch {
+                weather.innerHTML = '<p>Error fetching the weather data. Please try again later.</p>';
+            }
+        };
+
+        const city = '<?php echo $name; ?>';
+        getWeather(city);
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.myhead');
+
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
