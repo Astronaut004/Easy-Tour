@@ -211,32 +211,6 @@ body {
 /* Modal on testimonial page */
 
 
-/* Carousel Container */
-#carouselExampleDark {
-    position: relative;
-    width: 100%;
-    height: 649px;
-    overflow: hidden;
-}
-
-/* Carousel Inner Images */
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Carousel Indicators */
-.carousel-indicators {
-    bottom: 10px;
-}
-
-/* Carousel Controls */
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-}
-
 
 /*  Location Card   */
 .card-img-top {

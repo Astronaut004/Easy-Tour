@@ -4,7 +4,20 @@
   if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
     header("Location: ../Entry/login.php");
     exit();
+}
+if($_SESSION['role'] != "Admin") {
+    header("Location: ../UserPanel");
+    exit();
   }
+  
+  include "../connection.php";
+  $sql = "SELECT * FROM user_tb WHERE username = ?";
+  $stmt = $con->prepare($sql);
+  $stmt->bind_param("s",$_SESSION['username']);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $row = $result->fetch_assoc();
+  $image = $row['photo'];
 ?>
 <link rel="stylesheet" href="./style.css">
 
@@ -47,7 +60,7 @@
 
       <div class="dropdown text-end ms-3">
         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../images/user.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="<?php echo $image ?>" alt="mdo" width="32" height="32" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small mybg">
           <li><a class="dropdown-item" href="#">Settings</a></li>
