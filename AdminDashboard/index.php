@@ -101,6 +101,14 @@ if($_SESSION['role'] != "Admin") {
                     </a>
                 </li>
                 <li>
+                    <a href="./pages/location.php" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16">
+                            <use xlink:href="#table"></use>
+                        </svg>
+                        Community
+                    </a>
+                </li>
+                <li>
                     <a href="Testimonial.php" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>

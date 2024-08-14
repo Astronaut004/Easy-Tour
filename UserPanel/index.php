@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <!-- Hero -->
+    <!--div  -->
     <div class="px-4 pt-5 my-5 text-center border-bottom">
         <h1 class="display-4 fw-bold feat">Discover Your<span class="logoHead"> Next Adventure</span></h1>
         <div class="col-lg-6 mx-auto">
@@ -175,18 +175,6 @@
                 header.classList.remove('scrolled');
             }
         });
-    </script>
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "vW49c53wNcMffs0caHWvY",
-            domain: "www.chatbase.co"
-        }
-    </script>
-    <script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="vW49c53wNcMffs0caHWvY"
-        domain="www.chatbase.co"
-        defer>
     </script>
 </body>
 

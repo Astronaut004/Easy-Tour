@@ -234,11 +234,7 @@ body {
     bottom: 10px;
 }
 
-/* Carousel Controls */
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-}
+
 
 
 /*  Location Card   */
@@ -286,10 +282,8 @@ body {
     align-items: center;
     color: white;
     z-index: 2;
-    /* Ensure it appears above the overlay */
     text-align: center;
     padding: 15px;
-    /* Add some padding for better spacing */
 }
 
 .card-img-overlay h5 {

@@ -118,7 +118,7 @@ if (!$_SESSION['username']) {
                         <label class="form-label">City Photo*</label>
                         <input type="file" class="form-control" name="cimage">
                     </div>
-                    <button type="submit" class="btn btn-custom1 w-100">Add new City</button>
+                    <button type="submit" class="btn btn-custom1 w-100">Request new City</button>
                 </form>
             </div>
         </div>
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo '
                     <div id="alertBox" class="alert alert-success fade show" role="alert">
                         <div id="slider"></div>
-                        <strong>Great!</strong> New City has been Added.
+                        <strong>Great!</strong> New City has been Requested.
                     </div>
                     <script>
                         setTimeout(function() {

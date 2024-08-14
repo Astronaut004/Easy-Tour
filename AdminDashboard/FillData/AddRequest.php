@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
     $delete_stmt->bind_param("s", $name);
     $delete_stmt->execute();
 
-    echo "<script>window.open('../index.php');</script>";
+    echo "<script>window.open('../Dashboard.php','_self');</script>";
 } else {
     echo "No matching record found in request_tb.";
 }

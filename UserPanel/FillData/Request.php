@@ -114,7 +114,7 @@
                         <label class="form-label">State Photo*</label>
                         <input type="file" class="form-control" name="simage">
                     </div>
-                    <button type="submit" class="btn btn-custom1 w-100">Add new state</button>
+                    <button type="submit" class="btn btn-custom1 w-100">Request new state</button>
                 </form>
             </div>
         </div>

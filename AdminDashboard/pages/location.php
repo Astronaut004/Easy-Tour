@@ -79,7 +79,7 @@ if($_SESSION['role'] != "Admin") {
                             <p class="card-text">' . substr($desc, 0, 95) . '...</p>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="./detail.php" class="btn btn-custom1 w-100">View</a>
+                                    <a href="#" class="btn btn-custom1 w-100">View</a>
                                 </div>
                                 <div class="col-md-6">
                                     <a href="#" class="btn btn-custom1 w-100">Edit</a>

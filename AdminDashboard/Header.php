@@ -1,23 +1,23 @@
 <?php
-  session_start();
+session_start();
 
-  if(!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
-    header("Location: ../Entry/login.php");
-    exit();
+if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+  header("Location: ../Entry/login.php");
+  exit();
 }
-if($_SESSION['role'] != "Admin") {
-    header("Location: ../UserPanel");
-    exit();
-  }
-  
-  include "../connection.php";
-  $sql = "SELECT * FROM user_tb WHERE username = ?";
-  $stmt = $con->prepare($sql);
-  $stmt->bind_param("s",$_SESSION['username']);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  $row = $result->fetch_assoc();
-  $image = $row['photo'];
+if ($_SESSION['role'] != "Admin") {
+  header("Location: ../UserPanel");
+  exit();
+}
+
+include "../connection.php";
+$sql = "SELECT * FROM user_tb WHERE username = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $_SESSION['username']);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$image = $row['photo'];
 ?>
 <link rel="stylesheet" href="./style.css">
 
@@ -26,12 +26,16 @@ if($_SESSION['role'] != "Admin") {
     border: 1px solid #484128;
     color: black;
   }
+
   .btn-outline-success:hover {
     background-color: #484128;
     border: 1px solid #d4ccb1;
   }
+
   @media(max-width:1000px) {
-    .myin, .btn-outline-success {
+
+    .myin,
+    .btn-outline-success {
       display: none;
     }
   }
@@ -51,9 +55,10 @@ if($_SESSION['role'] != "Admin") {
       </form>
 
       <ul class="nav mb-2 mb-md-0">
-      <li class="nav-item"><a href="./Dashboard.php" class="nav-link px-2">Home</a></li>
-      <!-- <li class="nav-item"><a href="./City/AddExplore.php" class="nav-link px-2">Add City</a></li> -->
-      <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Explore</a></li>
+        <li class="nav-item"><a href="./Dashboard.php" class="nav-link px-2">Home</a></li>
+        <!-- <li class="nav-item"><a href="./City/AddExplore.php" class="nav-link px-2">Add City</a></li> -->
+        <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Explore</a></li>
+        <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Community</a></li>
         <li class="nav-item"><a href="./pages/contact.php" class="nav-link px-2">Contact us</a></li>
         <li class="nav-item"><a href="./Testimonial.php" class="nav-link px-2">Testimonials</a></li>
       </ul>
@@ -71,6 +76,7 @@ if($_SESSION['role'] != "Admin") {
           <li><a class="dropdown-item" href="../Entry/logout.php">Sign out</a></li>
         </ul>
       </div>
+      
     </div>
   </div>
 </div>

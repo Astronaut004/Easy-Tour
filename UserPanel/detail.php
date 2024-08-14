@@ -169,9 +169,8 @@ $date = $dateTimeObj->format('d-m-Y');
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-        const city = '<?php echo $name; ?>';
         document.addEventListener("DOMContentLoaded", () => {
-            const city = '<?php echo $name; ?>';
+            const city = '<?php echo $sname; ?>';
             const food = document.getElementById('main-content');
             const accommodation =document.getElementById('main-content1');
             if (food) {
@@ -198,10 +197,11 @@ $date = $dateTimeObj->format('d-m-Y');
                 weather.innerHTML = `${data.main.temp} ℃ ${weatherIcon}`;
 
             } catch {
-                weather.innerHTML = '<p>Error fetching the weather data. Please try again later.</p>';
+                weather.innerHTML = `<p>Error fetching the weather data. Please try again later ${sname} .</p>`;
             }
         };
-
+        
+        const city = '<?php echo $sname; ?>';
         getWeather(city);
 
         window.addEventListener('scroll', function() {

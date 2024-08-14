@@ -41,15 +41,16 @@
 
     <div class="d-flex align-items-center ml-auto">
       <!-- Search Bar -->
-      <form class="d-flex me-3" role="search">
+      <!-- <form class="d-flex me-3" role="search">
         <input class="form-control me-2 myin" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> -->
       
       <ul class="nav mb-2 mb-md-0">
       <li class="nav-item"><a href="./index.php" class="nav-link px-2">Home</a></li>
       <!-- <li class="nav-item"><a href="./City/AddExplore.php" class="nav-link px-2">Add City</a></li> -->
       <li class="nav-item"><a href="./Explore.php" class="nav-link px-2">Explore</a></li>
+      <li class="nav-item"><a href="./Community.php" class="nav-link px-2">Community</a></li>
         <li class="nav-item"><a href="./pages/contact.php" class="nav-link px-2">Contact us</a></li>
         <li class="nav-item"><a href="./Testimonial.php" class="nav-link px-2">Testimonials</a></li>
       </ul>
